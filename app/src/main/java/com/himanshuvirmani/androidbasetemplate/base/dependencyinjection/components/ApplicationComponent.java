@@ -13,7 +13,9 @@ import com.himanshuvirmani.androidbasetemplate.base.MainApplication;
 import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.modules.DataModule;
 import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.modules.MainApplicationModule;
 import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.modules.SystemServiceModule;
+import com.himanshuvirmani.androidbasetemplate.data.api.ApiManager;
 import com.himanshuvirmani.androidbasetemplate.utils.NetworkStateManager;
+import com.himanshuvirmani.androidcache.CacheManager;
 import dagger.Component;
 import javax.inject.Singleton;
 
@@ -36,4 +38,8 @@ public interface ApplicationComponent extends ApplicationServicesGraph {
   NetworkStateManager networkStateManager();
 
   LocationManager locationManager();
+
+  CacheManager cacheManager();
+
+  ApiManager apiManager();
 }

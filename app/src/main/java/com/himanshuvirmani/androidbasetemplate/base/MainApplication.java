@@ -4,6 +4,7 @@ import android.app.Application;
 import com.himanshuvirmani.androidbasetemplate.BuildConfig;
 import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.components.ApplicationComponent;
 import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.components.DaggerApplicationComponent;
+import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.modules.DataModule;
 import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.modules.MainApplicationModule;
 import com.himanshuvirmani.androidbasetemplate.base.dependencyinjection.modules.SystemServiceModule;
 import com.himanshuvirmani.androidbasetemplate.logger.FileLog;
@@ -22,6 +23,7 @@ public class MainApplication extends Application {
     applicationComponent = DaggerApplicationComponent.builder()
         .mainApplicationModule(new MainApplicationModule(this))
         .systemServiceModule(new SystemServiceModule(this))
+        .dataModule(new DataModule(this))
         .build();
     applicationComponent.inject(this);
   }

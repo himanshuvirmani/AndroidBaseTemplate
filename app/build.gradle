@@ -51,6 +51,7 @@ dependencies {
   compile dataDependencies.androiDiskCache
   provided dataDependencies.parceler
   provided dataDependencies.lombok
+  apt dataDependencies.lombok
   provided dataDependencies.javaxAnnotation
 
   androidTestCompile presentationTestDependencies.mockito

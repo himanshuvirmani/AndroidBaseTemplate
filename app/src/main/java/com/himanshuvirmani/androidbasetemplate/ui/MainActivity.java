@@ -2,7 +2,6 @@ package com.himanshuvirmani.androidbasetemplate.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -11,9 +10,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
+import butterknife.InjectView;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.himanshuvirmani.androidbasetemplate.R;
 import com.himanshuvirmani.androidbasetemplate.base.BaseActivity;
+import com.himanshuvirmani.androidbasetemplate.base.BaseFragment;
+import com.himanshuvirmani.androidbasetemplate.data.api.ApiManager;
+import com.himanshuvirmani.androidbasetemplate.data.entity.Post;
+import com.himanshuvirmani.androidbasetemplate.logger.Log;
+import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity
     implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -40,11 +47,6 @@ public class MainActivity extends BaseActivity
     // Set up the drawer.
     mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
         (DrawerLayout) findViewById(R.id.drawer_layout));
-    if(networkStateManager.isConnectedOrConnecting()) {
-      Toast.makeText(this, "Already connected or connecting", Toast.LENGTH_LONG).show();
-    } else {
-      Toast.makeText(this,"Not connected",Toast.LENGTH_LONG).show();
-    }
   }
 
   @Override public void onNavigationDrawerItemSelected(int position) {
@@ -105,7 +107,12 @@ public class MainActivity extends BaseActivity
   /**
    * A placeholder fragment containing a simple view.
    */
-  public static class PlaceholderFragment extends Fragment {
+  public static class PlaceholderFragment extends BaseFragment {
+
+    @InjectView(R.id.tv_title) TextView tvTitle;
+
+    @InjectView(R.id.tv_body) TextView tvBody;
+
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -130,7 +137,21 @@ public class MainActivity extends BaseActivity
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
       View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-      return rootView;
+      return super.onCreateView(rootView);
+    }
+
+    @Override public void onStart() {
+      super.onStart();
+      apiManager.getPostById(new Response.Listener<Post>() {
+        @Override public void onResponse(Post post) {
+          tvTitle.setText(post.getTitle());
+          tvBody.setText(post.getBody());
+        }
+      }, new Response.ErrorListener() {
+        @Override public void onErrorResponse(VolleyError volleyError) {
+          Log.e("Some error occurred" + volleyError.toString());
+        }
+      }, 1);
     }
 
     @Override public void onAttach(Activity activity) {

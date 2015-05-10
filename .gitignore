@@ -5,6 +5,7 @@
 /captures
 /.idea/*
 /*.iml
+/app/*.iml
 =======
 # Built application files
 *.apk
