@@ -3,7 +3,7 @@ package com.himanshuvirmani.androidbasetemplate.data;
 /**
  * Created by himanshu.virmani on 10/05/15.
  */
-public interface Config {
+public interface ApiConfig {
 
   String BASE_URL = "http://jsonplaceholder.typicode.com/";
 

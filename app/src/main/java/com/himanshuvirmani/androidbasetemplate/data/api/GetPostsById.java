@@ -2,7 +2,7 @@ package com.himanshuvirmani.androidbasetemplate.data.api;
 
 import com.android.volley.GsonRequest;
 import com.android.volley.Response;
-import com.himanshuvirmani.androidbasetemplate.data.Config;
+import com.himanshuvirmani.androidbasetemplate.data.ApiConfig;
 import com.himanshuvirmani.androidbasetemplate.data.entity.Post;
 
 /**
@@ -12,7 +12,7 @@ public class GetPostsById extends GsonRequest<Void,Post> {
 
   public GetPostsById(Response.Listener<Post> listener, Response.ErrorListener errorListener,
       int id) {
-    super(Method.GET, Config.BASE_URL + Config.GET_POST_BY_ID.replace("<ID>", String.valueOf(id)),
+    super(Method.GET, ApiConfig.BASE_URL + ApiConfig.GET_POST_BY_ID.replace("<ID>", String.valueOf(id)),
         Post.class, listener, errorListener);
   }
 }

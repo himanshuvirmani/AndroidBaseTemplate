@@ -1,4 +1,4 @@
-package com.himanshuvirmani.androidbasetemplate.ui;
+package com.himanshuvirmani.androidbasetemplate.ui.fragments;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
