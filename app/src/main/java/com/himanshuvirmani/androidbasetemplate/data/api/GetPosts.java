@@ -4,16 +4,16 @@ import com.android.volley.GsonRequest;
 import com.android.volley.Response;
 import com.himanshuvirmani.androidbasetemplate.data.ApiConfig;
 import com.himanshuvirmani.androidbasetemplate.data.entity.Post;
+import java.util.List;
 
 /**
  * Created by himanshu.virmani on 09/05/15.
  */
-public class GetPostsById extends GsonRequest<Void, Post> {
+public class GetPosts extends GsonRequest<Void, List<Post>> {
 
-  public GetPostsById(Response.Listener<Post> listener, Response.ErrorListener errorListener,
-      int id) {
+  public GetPosts(Response.Listener<List<Post>> listener, Response.ErrorListener errorListener) {
     super(Method.GET,
-        ApiConfig.BASE_URL + ApiConfig.GET_POST_BY_ID.replace("<ID>", String.valueOf(id)), listener,
+        ApiConfig.BASE_URL + ApiConfig.GET_POSTS, listener,
         errorListener);
   }
 }

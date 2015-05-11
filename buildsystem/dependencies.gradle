@@ -16,7 +16,7 @@ ext {
   picassoVersion = '2.5.2'
   diskCacheVersion = '1.0.1'
   lombokVersion = '1.14.4'
-  volleyVersion = '1.0.0'
+  volleyVersion = '1.0.1'
 
   //Testing
   robolectricVersion = '2.4'

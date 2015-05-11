@@ -18,6 +18,7 @@ import com.himanshuvirmani.androidbasetemplate.base.BaseFragment;
 import com.himanshuvirmani.androidbasetemplate.data.entity.Post;
 import com.himanshuvirmani.androidbasetemplate.logger.Log;
 import com.himanshuvirmani.androidbasetemplate.ui.activities.MainActivity;
+import java.util.List;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -57,6 +58,14 @@ public class SampleBlogFragment extends BaseFragment {
 
   @Override public void onStart() {
     super.onStart();
+    apiManager.getPosts(new Response.Listener<List<Post>>() {
+      @Override public void onResponse(List<Post> post) {
+      }
+    }, new Response.ErrorListener() {
+      @Override public void onErrorResponse(VolleyError volleyError) {
+        Log.e("Some error occurred" + volleyError.toString());
+      }
+    });
     apiManager.getPostById(new Response.Listener<Post>() {
       @Override public void onResponse(Post post) {
         tvTitle.setText(post.getTitle());
