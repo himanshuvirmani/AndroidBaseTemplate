@@ -3,6 +3,7 @@ package com.himanshuvirmani.androidbasetemplate.data.api;
 import android.content.Context;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.himanshuvirmani.androidbasetemplate.data.entity.Post;
@@ -17,12 +18,19 @@ public class ApiManager {
   private ImageLoader mImageLoader;
 
   public ApiManager(Context context) {
+    VolleyLog.setVerbose(true);
     mRequestQueue = Volley.newRequestQueue(context.getApplicationContext());
-    mImageLoaderQueue = Volley.newRequestQueue(context.getApplicationContext()); //not used as of now
+    mImageLoaderQueue =
+        Volley.newRequestQueue(context.getApplicationContext()); //not used as of now
   }
 
   public void getPostById(Response.Listener<Post> listener, Response.ErrorListener errorListener,
       int id) {
-    mRequestQueue.add(new GetPostsById(listener,errorListener,id));
+    mRequestQueue.add(new GetPostsById(listener, errorListener, id));
+  }
+
+  public void putPostById(Response.Listener<Post> listener, Response.ErrorListener errorListener,
+      int id, Post post) {
+    mRequestQueue.add(new PutPostsById(listener, errorListener, id, post));
   }
 }

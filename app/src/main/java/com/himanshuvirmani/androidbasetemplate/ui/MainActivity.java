@@ -17,10 +17,8 @@ import com.android.volley.VolleyError;
 import com.himanshuvirmani.androidbasetemplate.R;
 import com.himanshuvirmani.androidbasetemplate.base.BaseActivity;
 import com.himanshuvirmani.androidbasetemplate.base.BaseFragment;
-import com.himanshuvirmani.androidbasetemplate.data.api.ApiManager;
 import com.himanshuvirmani.androidbasetemplate.data.entity.Post;
 import com.himanshuvirmani.androidbasetemplate.logger.Log;
-import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity
     implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -152,6 +150,22 @@ public class MainActivity extends BaseActivity
           Log.e("Some error occurred" + volleyError.toString());
         }
       }, 1);
+
+      Post post = new Post();
+      post.setId(1);
+      post.setUserId(1);
+      post.setBody("Sample body for sample blog");
+      post.setTitle("Sample title");
+      apiManager.putPostById(new Response.Listener<Post>() {
+        @Override public void onResponse(Post post) {
+          tvTitle.setText(post.getTitle());
+          tvBody.setText(post.getBody());
+        }
+      }, new Response.ErrorListener() {
+        @Override public void onErrorResponse(VolleyError volleyError) {
+          Log.e("Some error occurred" + volleyError.toString());
+        }
+      }, 1,post);
     }
 
     @Override public void onAttach(Activity activity) {

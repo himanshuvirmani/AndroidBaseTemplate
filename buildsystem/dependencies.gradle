@@ -16,6 +16,7 @@ ext {
   picassoVersion = '2.5.2'
   diskCacheVersion = '1.0.1'
   lombokVersion = '1.14.4'
+  volleyVersion = '1.0.0'
 
   //Testing
   robolectricVersion = '2.4'
@@ -51,6 +52,7 @@ ext {
       parceler:           "org.parceler:parceler:${parcelerVersion}",
       picasso:            "com.squareup.picasso:picasso:${picassoVersion}",
       androiDiskCache:    "com.himanshuvirmani:androidcache:${diskCacheVersion}",
+      androidVolley:      "com.himanshuvirmani:volley-okhttp-gson-library:${volleyVersion}",
       lombok:             "org.projectlombok:lombok:${lombokVersion}"
   ]
 

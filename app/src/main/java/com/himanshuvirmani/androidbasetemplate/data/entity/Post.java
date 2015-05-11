@@ -1,17 +1,13 @@
 package com.himanshuvirmani.androidbasetemplate.data.entity;
 
-import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  * Created by himanshu.virmani on 09/05/15.
  */
-@Getter
-@Setter
+@Data
 public class Post {
 
-  @SerializedName("userId")
   private int userId;
 
   private int id;

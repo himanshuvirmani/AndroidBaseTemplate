@@ -49,6 +49,7 @@ dependencies {
   compile dataDependencies.androidAnnotations
   compile dataDependencies.parcelerApi
   compile dataDependencies.androiDiskCache
+  compile dataDependencies.androidVolley
   provided dataDependencies.parceler
   provided dataDependencies.lombok
   apt dataDependencies.lombok

@@ -8,7 +8,7 @@ import com.himanshuvirmani.androidbasetemplate.data.entity.Post;
 /**
  * Created by himanshu.virmani on 09/05/15.
  */
-public class GetPostsById extends GsonRequest<Post> {
+public class GetPostsById extends GsonRequest<Void,Post> {
 
   public GetPostsById(Response.Listener<Post> listener, Response.ErrorListener errorListener,
       int id) {
