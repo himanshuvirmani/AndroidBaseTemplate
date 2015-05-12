@@ -44,8 +44,6 @@ dependencies {
   compile presentationDependencies.butterKnife
   compile presentationDependencies.recyclerView
   compile dataDependencies.dagger
-  compile dataDependencies.okHttp
-  compile dataDependencies.gson
   compile dataDependencies.androidAnnotations
   compile dataDependencies.parcelerApi
   compile dataDependencies.androiDiskCache

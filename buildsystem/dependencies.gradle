@@ -10,8 +10,6 @@ ext {
   butterKnifeVersion = '6.0.0'
   recyclerViewVersion = '21.0.3'
   javaxAnnotationVersion = '10.0-b28'
-  gsonVersion = '2.3'
-  okHttpVersion = '2.3.0'
   androidAnnotationsVersion = '20.0.0'
   picassoVersion = '2.5.2'
   diskCacheVersion = '1.0.1'
@@ -44,8 +42,6 @@ ext {
   dataDependencies = [
       daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
       dagger:             "com.google.dagger:dagger:${daggerVersion}",
-      okHttp:             "com.squareup.okhttp:okhttp:${okHttpVersion}",
-      gson:               "com.google.code.gson:gson:${gsonVersion}",
       javaxAnnotation:    "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
       androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
       parcelerApi:        "org.parceler:parceler-api:${parcelerVersion}",
