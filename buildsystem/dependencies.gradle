@@ -12,7 +12,7 @@ ext {
   javaxAnnotationVersion = '10.0-b28'
   androidAnnotationsVersion = '20.0.0'
   picassoVersion = '2.5.2'
-  diskCacheVersion = '1.0.1'
+  diskCacheVersion = '1.0.2'
   lombokVersion = '1.14.4'
   volleyVersion = '1.0.1'
 
