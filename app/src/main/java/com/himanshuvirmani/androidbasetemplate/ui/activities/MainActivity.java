@@ -28,6 +28,10 @@ public class MainActivity extends BaseActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+  }
+
+  @Override protected void onPostCreate(Bundle savedInstanceState) {
+    super.onPostCreate(savedInstanceState);
     mNavigationDrawerFragment =
         (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(
             R.id.navigation_drawer);
