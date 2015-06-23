@@ -26,6 +26,7 @@ public class MainApplication extends Application {
         .dataModule(new DataModule(this))
         .build();
     applicationComponent.inject(this);
+    assignLogger();
   }
 
   public ApplicationComponent component() {
