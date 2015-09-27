@@ -1,5 +1,5 @@
 # AndroidBaseTemplate
-Android base template code with clean architecture and major useful 3rd party libraries used in android development.
+Android base template code with clean architecture using popular 3rd party libraries.
 
 ## Highlights
 
